@@ -1,0 +1,24 @@
+{
+  "name": "useful-simple-functions",
+  "version": "1.0.0",
+  "description": "Useful simple functions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abraaopinto/useful-simple-functions.git"
+  },
+  "keywords": [
+    "useful",
+    "simple",
+    "functions"
+  ],
+  "author": "Abraão Pinto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abraaopinto/useful-simple-functions/issues"
+  },
+  "homepage": "https://github.com/abraaopinto/useful-simple-functions#readme"
+}
