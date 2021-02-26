@@ -4,7 +4,7 @@
   "description": "Useful simple functions.",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mochan"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/abraaopinto/useful-simple-functions/issues"
   },
-  "homepage": "https://github.com/abraaopinto/useful-simple-functions#readme"
+  "homepage": "https://github.com/abraaopinto/useful-simple-functions#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^7.20.0"
+  }
 }
