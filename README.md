@@ -26,9 +26,10 @@ yarn add useful-simple-functions
 const useful = require('useful-simple-functions');
 
 useful.capitalize('text text');
+// TEXT TEXT
 
 useful.sanitize('A@B#C$1%2&3');
-
+// ABC123
 ```
 ## Methods
 
@@ -38,6 +39,7 @@ useful.sanitize('A@B#C$1%2&3');
 const useful = require('useful-simple-functions');
 
 useful.sanitize('A@B#C$1%2&3');
+// ABC123
 ```
 
 ### capitalize
@@ -46,6 +48,7 @@ useful.sanitize('A@B#C$1%2&3');
 const useful = require('useful-simple-functions');
 
 useful.capitalize('text text');
+// TEXT TEXT
 ```
 
 ### sanitizeAndCapitalize
@@ -53,7 +56,8 @@ useful.capitalize('text text');
 ```js
 const useful = require('useful-simple-functions');
 
-useful.sanitizeAndCapitalize('A@B#C$1%2&3');
+useful.sanitizeAndCapitalize('a@b#c$1%2&3');
+// ABC123
 ```
 
 ### capitalizeFirst
@@ -61,5 +65,6 @@ useful.sanitizeAndCapitalize('A@B#C$1%2&3');
 ```js
 const useful = require('useful-simple-functions');
 
-useful.capitalizeFirst('title');
+useful.capitalizeFirst('any text');
+// Any text
 ```
