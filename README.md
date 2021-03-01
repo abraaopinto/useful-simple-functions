@@ -1,5 +1,11 @@
 # useful-simple-functions
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/abraaopinto/useful-simple-functions?style=plastic)
+![npm](https://img.shields.io/npm/v/useful-simple-functions?style=plastic)
+![npm](https://img.shields.io/npm/dw/useful-simple-functions?style=plastic)
+![GitHub top language](https://img.shields.io/github/languages/top/abraaopinto/useful-simple-functions?style=plastic)
+![GitHub](https://img.shields.io/github/license/abraaopinto/useful-simple-functions?style=plastic)
+
 Useful simple functions.
 
 ## Installing
@@ -68,3 +74,7 @@ const useful = require('useful-simple-functions');
 useful.capitalizeFirst('any text');
 // Any text
 ```
+
+## License
+
+[MIT](LICENSE)
