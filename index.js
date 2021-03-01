@@ -1,4 +1,4 @@
-const stringUseful = require('./src/string-functions')
+const stringUseful = require('./src/string-functions/index')
 
 module.exports = {
     ...stringUseful
