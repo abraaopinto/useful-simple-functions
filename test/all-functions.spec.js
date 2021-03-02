@@ -130,6 +130,24 @@ describe('Function isNotEmpty', ()=> {
     it('test is not empty String', ()=> {
         expect(useful.isNotEmpty('John')).to.be.true
     })
+
+    it('test is not empty String', ()=> {
+        expect(useful.isNotEmpty(' ')).to.be.true
+    })
+
+    it('test is not empty String', ()=> {
+        expect(useful.isNotEmpty('')).to.be.false
+    })
+})
+
+describe('Function isBlank', () => {
+    it('test is blank value blank', () => {
+        expect(useful.isBlank("             ")).to.be.true
+    })
+
+    it('test is blank value null', () => {
+        expect(useful.isBlank(null)).to.be.false
+    })
 })
 
 describe('Function ...', () => {

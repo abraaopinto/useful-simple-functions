@@ -5,15 +5,15 @@ const isEmpty = function (o) {
 
     if (o.constructor === Object) return  Object.entries(o).length === 0
 
-    if (o.constructor === Array || o.constructor === String) return !o.length
+    if (o.constructor === Array || o.constructor === String) return o.length === 0
 
-    if (o.constructor === Set || o.constructor === Map) return !o.size
+    if (o.constructor === Set || o.constructor === Map) return o.size === 0
 
     return true
 }
 const isNotEmpty = o => !isEmpty(o)
 
-const isBlank = s => isNotNull(s) && s.constructor === String && s.trim() !== ''
+const isBlank = s => isNotEmpty(s) && s.constructor === String && s.trim().length === 0
 
 module.exports = {
     isNull,
