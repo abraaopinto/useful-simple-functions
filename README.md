@@ -75,6 +75,92 @@ useful.capitalizeFirst('any text');
 // Any text
 ```
 
+### isNull
+
+```js
+const useful = require('useful-simple-functions');
+
+useful.isNull('any text');
+// false
+
+useful.isNull(null);
+// true
+```
+
+### isNotNull
+
+```js
+const useful = require('useful-simple-functions');
+
+useful.isNotNull('any text');
+// true
+
+useful.isNotNull(null);
+// false
+```
+### isEmpty
+
+```js
+const useful = require('useful-simple-functions');
+
+useful.isEmpty('any text');
+// false
+
+useful.isEmpty('');
+// true
+
+useful.isEmpty({});
+// true
+
+useful.isEmpty([]);
+// true
+
+
+useful.isEmpty(new Set());
+// true
+
+useful.isEmpty(new Map());
+// true
+```
+
+### isNotEmpty
+
+```js
+const useful = require('useful-simple-functions');
+
+useful.isNotEmpty('any text');
+// true
+
+useful.isNotEmpty('');
+// false
+
+useful.isNotEmpty({});
+// false
+
+useful.isNotEmpty([]);
+// false
+
+
+useful.isNotEmpty(new Set());
+// false
+
+useful.isNotEmpty(new Map());
+// false
+```
+
+### isBlank
+
+```js
+const useful = require('useful-simple-functions');
+
+useful.isBlank('any text');
+// false
+
+useful.isBlank('  ');
+// true
+```
+
+
 ## License
 
 [MIT](LICENSE)
