@@ -13,7 +13,11 @@
   "keywords": [
     "useful",
     "simple",
-    "functions"
+    "functions",
+    "capitalize",
+    "sanitize-and-capitalize",
+    "capitalize-first",
+    "sanitize"
   ],
   "author": "Abraão Pinto",
   "license": "MIT",
