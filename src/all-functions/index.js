@@ -13,9 +13,12 @@ const isEmpty = function (o) {
 }
 const isNotEmpty = o => !isEmpty(o)
 
+const isBlank = s => isNotNull(s) && s.constructor === String && s.trim() !== ''
+
 module.exports = {
     isNull,
     isNotNull,
     isEmpty,
-    isNotEmpty
+    isNotEmpty,
+    isBlank
 }
