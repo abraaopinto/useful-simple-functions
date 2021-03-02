@@ -1,6 +1,6 @@
 {
   "name": "useful-simple-functions",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Useful simple functions.",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,12 @@
     "capitalize",
     "sanitize-and-capitalize",
     "capitalize-first",
-    "sanitize"
+    "sanitize",
+    "isNull",
+    "isNotNull",
+    "isEmpty",
+    "isNotEmpty",
+    "isBlank"
   ],
   "author": "Abraão Pinto",
   "license": "MIT",
