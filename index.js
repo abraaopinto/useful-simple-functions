@@ -1,1 +1,1 @@
-module.exports = require('./src/string-functions/index')
+module.exports = require('./src')
