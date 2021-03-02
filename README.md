@@ -37,6 +37,7 @@ useful.capitalize('text text');
 useful.sanitize('A@B#C$1%2&3');
 // ABC123
 ```
+
 ## Methods
 
 ### sanitize
@@ -98,6 +99,7 @@ useful.isNotNull('any text');
 useful.isNotNull(null);
 // false
 ```
+
 ### isEmpty
 
 ```js
@@ -114,7 +116,6 @@ useful.isEmpty({});
 
 useful.isEmpty([]);
 // true
-
 
 useful.isEmpty(new Set());
 // true
@@ -139,7 +140,6 @@ useful.isNotEmpty({});
 
 useful.isNotEmpty([]);
 // false
-
 
 useful.isNotEmpty(new Set());
 // false
