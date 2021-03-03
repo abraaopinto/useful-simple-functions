@@ -160,6 +160,38 @@ useful.isBlank('  ');
 // true
 ```
 
+### isNumber
+
+```js
+const useful = require('useful-simple-functions');
+
+useful.isNumber('1.0');
+// true
+
+useful.isNumber(1.0);
+// true
+
+useful.isNumber(.0);
+// true
+
+useful.isNumber(0);
+// true
+
+useful.isNumber(-1.0);
+// true
+
+useful.isNumber('any text');
+// false
+
+useful.isNumber('  ');
+// false
+
+useful.isNumber('1,0');
+// false
+
+useful.isNumber(',0');
+// false
+```
 
 ## License
 

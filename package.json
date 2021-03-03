@@ -1,6 +1,6 @@
 {
   "name": "useful-simple-functions",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Useful simple functions.",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,8 @@
     "isNotNull",
     "isEmpty",
     "isNotEmpty",
-    "isBlank"
+    "isBlank",
+    "isNumber"
   ],
   "author": "Abraão Pinto",
   "license": "MIT",
