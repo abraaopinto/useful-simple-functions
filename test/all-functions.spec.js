@@ -22,7 +22,7 @@ describe('Function isNull', ()=> {
         expect(useful.isNull(true)).to.be.false
     })
     it('test with parameter number zero', ()=> {
-        expect(useful.isNull(0)).to.be.true
+        expect(useful.isNull(0)).to.be.false
     })
     it('test with positive numerical parameter 1', ()=> {
         expect(useful.isNull(1)).to.be.false
@@ -173,6 +173,60 @@ describe('Function isBlank', () => {
 
     it('test is blank value null', () => {
         expect(useful.isBlank(null)).to.be.false
+    })
+})
+
+describe('Function isNumber', ()=> {
+    it('test without parameter passing', ()=> {
+        expect(useful.isNumber()).to.be.false
+    })
+    it('test with null parameter', ()=> {
+        expect(useful.isNumber(null)).to.be.false
+    })
+    it('test with NaN parameter', ()=> {
+        expect(useful.isNumber(NaN)).to.be.false
+    })
+    it('test with undefined parameter', ()=> {
+        expect(useful.isNumber(undefined)).to.be.false
+    })
+    it('test with boolean parameter false', ()=> {
+        expect(useful.isNumber(false)).to.be.false
+    })
+    it('test with boolean parameter true', ()=> {
+        expect(useful.isNumber(true)).to.be.false
+    })
+    it('test with object parameter', ()=> {
+        expect(useful.isNumber({})).to.be.false
+    })
+    it('test with array parameter', ()=> {
+        expect(useful.isNumber([])).to.be.false
+    })
+    it('test with function parameter', ()=> {
+        expect(useful.isNumber(() => {})).to.be.false
+    }) 
+    it('test with parameter number zero', ()=> {
+        expect(useful.isNumber(0)).to.be.true
+    })
+    it('test with positive numerical parameter 1', ()=> {
+        expect(useful.isNumber(1)).to.be.true
+    })
+    it('test with negative numerical parameter -1', ()=> {
+        expect(useful.isNumber(-1)).to.be.true
+    })
+    it('test with decimal positive parameter 1.00', ()=> {
+        expect(useful.isNumber(1.00)).to.be.true
+    })
+    it('test with decimal negative parameter -1.00', ()=> {
+        expect(useful.isNumber(-1.00)).to.be.true
+    })
+    it('test with decimal positive parameter .00', ()=> {
+        expect(useful.isNumber(.00)).to.be.true
+    })
+    it('test with decimal positive parameter 1,00', ()=> {
+        expect(useful.isNumber(1,00)).to.be.true
+    })
+    it('test with string decimal positive parameter "1.00"', ()=> {
+        expect(useful.isNumber('1.00')).to.be.true
     })
 })
 
