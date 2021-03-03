@@ -3,55 +3,81 @@ const expect = chai.expect
 const useful  = require('../index')
 
 describe('Function isNull', ()=> {
-    it('test is null', ()=> {
+    it('test without parameter passing', ()=> {
+        expect(useful.isNull()).to.be.true
+    })
+    it('test with null parameter', ()=> {
         expect(useful.isNull(null)).to.be.true
     })
-    it('test is undefined', ()=> {
-        expect(useful.isNull(undefined)).to.be.false
+    it('test with NaN parameter', ()=> {
+        expect(useful.isNull(NaN)).to.be.true
     })
-    it('test is object', ()=> {
-        const objectTest = {}
-        expect(useful.isNull(objectTest)).to.be.false
+    it('test with undefined parameter', ()=> {
+        expect(useful.isNull(undefined)).to.be.true
     })
-    it('test is number', ()=> {
+    it('test with boolean parameter false', ()=> {
+        expect(useful.isNull(false)).to.be.true
+    })
+    it('test with boolean parameter true', ()=> {
+        expect(useful.isNull(true)).to.be.false
+    })
+    it('test with parameter number zero', ()=> {
+        expect(useful.isNull(0)).to.be.true
+    })
+    it('test with positive numerical parameter 1', ()=> {
         expect(useful.isNull(1)).to.be.false
     })
-    it('test is array', ()=> {
+    it('test with negative numerical parameter -1', ()=> {
+        expect(useful.isNull(-1)).to.be.false
+    })
+    it('test with object parameter', ()=> {
+        expect(useful.isNull({})).to.be.false
+    })
+    it('test with array parameter', ()=> {
         expect(useful.isNull([])).to.be.false
     })
-    it('test is function', ()=> {
-        expect(useful.isNull( () => "text" )).to.be.false
-    })
-    it('test is NaN', ()=> {
-        expect(useful.isNull(NaN)).to.be.false
-    })
-  
+    it('test with function parameter', ()=> {
+        expect(useful.isNull(() => {})).to.be.false
+    })  
 })
 
 describe('Function isNotNull', ()=> {
-    it('test is null', ()=> {
+    it('test without parameter passing', ()=> {
+        expect(useful.isNotNull()).to.be.false
+    })
+    it('test with null parameter', ()=> {
         expect(useful.isNotNull(null)).to.be.false
     })
-    it('test is undefined', ()=> {
-        expect(useful.isNotNull(undefined)).to.be.true
+    it('test with NaN parameter', ()=> {
+        expect(useful.isNotNull(NaN)).to.be.false
     })
-    it('test is object', ()=> {
-        const objectTest = {}
-        expect(useful.isNotNull(objectTest)).to.be.true
+    it('test with undefined parameter', ()=> {
+        expect(useful.isNotNull(undefined)).to.be.false
     })
-    it('test is number', ()=> {
+    it('test with boolean parameter false', ()=> {
+        expect(useful.isNotNull(false)).to.be.false
+    })
+    it('test with boolean parameter true', ()=> {
+        expect(useful.isNotNull(true)).to.be.true
+    })
+    it('test with parameter number zero', ()=> {
+        expect(useful.isNotNull(0)).to.be.false
+    })
+    it('test with positive numerical parameter 1', ()=> {
         expect(useful.isNotNull(1)).to.be.true
     })
-    it('test is array', ()=> {
+    it('test with negative numerical parameter -1', ()=> {
+        expect(useful.isNotNull(-1)).to.be.true
+    })
+    it('test with object parameter', ()=> {
+        expect(useful.isNotNull({})).to.be.true
+    })
+    it('test with array parameter', ()=> {
         expect(useful.isNotNull([])).to.be.true
     })
-    it('test is function', ()=> {
-        expect(useful.isNotNull( () => "text" )).to.be.true
-    })
-    it('test is NaN', ()=> {
-        expect(useful.isNotNull(NaN)).to.be.true
-    })
-  
+    it('test with function parameter', ()=> {
+        expect(useful.isNotNull(() => {})).to.be.true
+    })    
 })
 
 describe('Function isEmpty', ()=> {
