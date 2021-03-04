@@ -193,6 +193,51 @@ useful.isNumber(',0');
 // false
 ```
 
+### isCpf
+
+```js
+const useful = require('useful-simple-functions');
+
+useful.isCpf('123.456.789-09');
+// true
+
+useful.isCpf('999.999.999-99');
+// false
+
+```
+
+### isCnpj
+
+```js
+const useful = require('useful-simple-functions');
+
+useful.isCnpj('52.851.132/0001-20');
+// true
+
+useful.isCnpj('00.000.000/0000-00');
+// false
+
+```
+
+### isCpfCnpj
+
+```js
+const useful = require('useful-simple-functions');
+
+useful.isCpfCnpj('123.456.789-09');
+// true
+
+useful.isCpfCnpj('52.851.132/0001-20');
+// true
+
+useful.isCpfCnpj('999.999.999-99');
+// false
+
+useful.isCpfCnpj('00.000.000/0000-00');
+// false
+
+```
+
 ## License
 
 [MIT](LICENSE)
