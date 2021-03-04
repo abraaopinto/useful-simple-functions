@@ -1,6 +1,6 @@
 {
   "name": "useful-simple-functions",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Useful simple functions.",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,10 @@
     "isEmpty",
     "isNotEmpty",
     "isBlank",
-    "isNumber"
+    "isNumber",
+    "isCpf",
+    "isCnpj",
+    "isCpfCnpj"
   ],
   "author": "Abraão Pinto",
   "license": "MIT",
