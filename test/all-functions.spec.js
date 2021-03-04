@@ -362,118 +362,91 @@ describe('Function isCnpj', () => {
 
 describe('Function isCpfCnpj', () => {
     it('test without parameter passing', ()=> {
-        expect(useful.isCpf()).to.be.false
+        expect(useful.isCpfCnpj()).to.be.false
     })
     it('test with null parameter', ()=> {
-        expect(useful.isCpf(null)).to.be.false
+        expect(useful.isCpfCnpj(null)).to.be.false
     })
     it('test with NaN parameter', ()=> {
-        expect(useful.isCpf(NaN)).to.be.false
+        expect(useful.isCpfCnpj(NaN)).to.be.false
     })
     it('test with undefined parameter', ()=> {
-        expect(useful.isCpf(undefined)).to.be.false
+        expect(useful.isCpfCnpj(undefined)).to.be.false
     })
     it('test with boolean parameter false', ()=> {
-        expect(useful.isCpf(false)).to.be.false
+        expect(useful.isCpfCnpj(false)).to.be.false
     })
     it('test with boolean parameter true', ()=> {
-        expect(useful.isCpf(true)).to.be.false
+        expect(useful.isCpfCnpj(true)).to.be.false
     })
     it('test with object parameter', ()=> {
-        expect(useful.isCpf({})).to.be.false
+        expect(useful.isCpfCnpj({})).to.be.false
     })
     it('test with array parameter', ()=> {
-        expect(useful.isCpf([])).to.be.false
+        expect(useful.isCpfCnpj([])).to.be.false
     })
     it('test with function parameter', ()=> {
-        expect(useful.isCpf(() => {})).to.be.false
+        expect(useful.isCpfCnpj(() => {})).to.be.false
     })
-    it('test with invalid cpf', ()=> {
-        expect(useful.isCpf('000.000.000-00')).to.be.false
-        expect(useful.isCpf(00000000000)).to.be.false
-        expect(useful.isCpf('111.111.111-11')).to.be.false
-        expect(useful.isCpf(11111111111)).to.be.false
-        expect(useful.isCpf('222.222.222-22')).to.be.false
-        expect(useful.isCpf(22222222222)).to.be.false
-        expect(useful.isCpf('333.333.333-33')).to.be.false
-        expect(useful.isCpf(33333333333)).to.be.false
-        expect(useful.isCpf('444.444.444-44')).to.be.false
-        expect(useful.isCpf(44444444444)).to.be.false
-        expect(useful.isCpf('555.555.555-55')).to.be.false
-        expect(useful.isCpf(55555555555)).to.be.false
-        expect(useful.isCpf('666.666.666-66')).to.be.false
-        expect(useful.isCpf(66666666666)).to.be.false
-        expect(useful.isCpf('777.777.777-77')).to.be.false
-        expect(useful.isCpf(77777777777)).to.be.false
-        expect(useful.isCpf('888.888.888-88')).to.be.false
-        expect(useful.isCpf(88888888888)).to.be.false
-        expect(useful.isCpf('999.999.999-99')).to.be.false
-        expect(useful.isCpf(99999999999)).to.be.false
-        expect(useful.isCpf('999.99e.999-99')).to.be.false
+    it('test with invalid cpf or cnpj', ()=> {
+        expect(useful.isCpfCnpj('000.000.000-00')).to.be.false
+        expect(useful.isCpfCnpj(00000000000)).to.be.false
+        expect(useful.isCpfCnpj('111.111.111-11')).to.be.false
+        expect(useful.isCpfCnpj(11111111111)).to.be.false
+        expect(useful.isCpfCnpj('222.222.222-22')).to.be.false
+        expect(useful.isCpfCnpj(22222222222)).to.be.false
+        expect(useful.isCpfCnpj('333.333.333-33')).to.be.false
+        expect(useful.isCpfCnpj(33333333333)).to.be.false
+        expect(useful.isCpfCnpj('444.444.444-44')).to.be.false
+        expect(useful.isCpfCnpj(44444444444)).to.be.false
+        expect(useful.isCpfCnpj('555.555.555-55')).to.be.false
+        expect(useful.isCpfCnpj(55555555555)).to.be.false
+        expect(useful.isCpfCnpj('666.666.666-66')).to.be.false
+        expect(useful.isCpfCnpj(66666666666)).to.be.false
+        expect(useful.isCpfCnpj('777.777.777-77')).to.be.false
+        expect(useful.isCpfCnpj(77777777777)).to.be.false
+        expect(useful.isCpfCnpj('888.888.888-88')).to.be.false
+        expect(useful.isCpfCnpj(88888888888)).to.be.false
+        expect(useful.isCpfCnpj('999.999.999-99')).to.be.false
+        expect(useful.isCpfCnpj(99999999999)).to.be.false
+        expect(useful.isCpfCnpj('999.99e.999-99')).to.be.false
     })
-    it('test with valid cpf', ()=> {
-        expect(useful.isCpf('123.456.789-09')).to.be.true
-        expect(useful.isCpf(12345678909)).to.be.true
-        expect(useful.isCpf('802.061.312-91')).to.be.true
-        expect(useful.isCpf(80206131291)).to.be.true  
+    it('test with valid cpf or cnpj', ()=> {
+        expect(useful.isCpfCnpj('123.456.789-09')).to.be.true
+        expect(useful.isCpfCnpj(12345678909)).to.be.true
+        expect(useful.isCpfCnpj('802.061.312-91')).to.be.true
+        expect(useful.isCpfCnpj(80206131291)).to.be.true  
     })
-    it('test without parameter passing', ()=> {
-        expect(useful.isCnpj()).to.be.false
+    it('test with invalid cpf or cnpj', ()=> {
+        expect(useful.isCpfCnpj('00.000.000/0000-00')).to.be.false
+        expect(useful.isCpfCnpj(00000000000000)).to.be.false
+        expect(useful.isCpfCnpj('11.111.111/1111-11')).to.be.false
+        expect(useful.isCpfCnpj(11111111111111)).to.be.false
+        expect(useful.isCpfCnpj('22.222.222/2222-22')).to.be.false
+        expect(useful.isCpfCnpj(22222222222222)).to.be.false
+        expect(useful.isCpfCnpj('33.333.333/3333-33')).to.be.false
+        expect(useful.isCpfCnpj(33333333333333)).to.be.false
+        expect(useful.isCpfCnpj('44.444.444/4444-44')).to.be.false
+        expect(useful.isCpfCnpj(44444444444444)).to.be.false
+        expect(useful.isCpfCnpj('55.555.555/5555-55')).to.be.false
+        expect(useful.isCpfCnpj(55555555555555)).to.be.false
+        expect(useful.isCpfCnpj('66.666.666/6666-66')).to.be.false
+        expect(useful.isCpfCnpj(66666666666666)).to.be.false
+        expect(useful.isCpfCnpj('77.777.777/7777-77')).to.be.false
+        expect(useful.isCpfCnpj(77777777777777)).to.be.false
+        expect(useful.isCpfCnpj('88.888.888/8888-88')).to.be.false
+        expect(useful.isCpfCnpj(88888888888888)).to.be.false
+        expect(useful.isCpfCnpj('99.999.999/9999-99')).to.be.false
+        expect(useful.isCpfCnpj(99999999999999)).to.be.false
+        expect(useful.isCpfCnpj('99.99e.999/0001-99')).to.be.false
     })
-    it('test with null parameter', ()=> {
-        expect(useful.isCnpj(null)).to.be.false
-    })
-    it('test with NaN parameter', ()=> {
-        expect(useful.isCnpj(NaN)).to.be.false
-    })
-    it('test with undefined parameter', ()=> {
-        expect(useful.isCnpj(undefined)).to.be.false
-    })
-    it('test with boolean parameter false', ()=> {
-        expect(useful.isCnpj(false)).to.be.false
-    })
-    it('test with boolean parameter true', ()=> {
-        expect(useful.isCnpj(true)).to.be.false
-    })
-    it('test with object parameter', ()=> {
-        expect(useful.isCnpj({})).to.be.false
-    })
-    it('test with array parameter', ()=> {
-        expect(useful.isCnpj([])).to.be.false
-    })
-    it('test with function parameter', ()=> {
-        expect(useful.isCnpj(() => {})).to.be.false
-    })
-    it('test with invalid cnpj', ()=> {
-        expect(useful.isCnpj('00.000.000/0000-00')).to.be.false
-        expect(useful.isCnpj(00000000000000)).to.be.false
-        expect(useful.isCnpj('11.111.111/1111-11')).to.be.false
-        expect(useful.isCnpj(11111111111111)).to.be.false
-        expect(useful.isCnpj('22.222.222/2222-22')).to.be.false
-        expect(useful.isCnpj(22222222222222)).to.be.false
-        expect(useful.isCnpj('33.333.333/3333-33')).to.be.false
-        expect(useful.isCnpj(33333333333333)).to.be.false
-        expect(useful.isCnpj('44.444.444/4444-44')).to.be.false
-        expect(useful.isCnpj(44444444444444)).to.be.false
-        expect(useful.isCnpj('55.555.555/5555-55')).to.be.false
-        expect(useful.isCnpj(55555555555555)).to.be.false
-        expect(useful.isCnpj('66.666.666/6666-66')).to.be.false
-        expect(useful.isCnpj(66666666666666)).to.be.false
-        expect(useful.isCnpj('77.777.777/7777-77')).to.be.false
-        expect(useful.isCnpj(77777777777777)).to.be.false
-        expect(useful.isCnpj('88.888.888/8888-88')).to.be.false
-        expect(useful.isCnpj(88888888888888)).to.be.false
-        expect(useful.isCnpj('99.999.999/9999-99')).to.be.false
-        expect(useful.isCnpj(99999999999999)).to.be.false
-        expect(useful.isCnpj('99.99e.999/0001-99')).to.be.false
-    })
-    it('test with valid cnpj', ()=> {
-        expect(useful.isCnpj('52.851.132/0001-20')).to.be.true
-        expect(useful.isCnpj(52851132000120)).to.be.true
-        expect(useful.isCnpj('18.264.801/0001-20')).to.be.true
-        expect(useful.isCnpj(18264801000120)).to.be.true  
-        expect(useful.isCnpj('04.879.969/0001-35')).to.be.true
-        expect(useful.isCnpj(4879969000135)).to.be.true
+    it('test with valid cpf or cnpj', ()=> {
+        expect(useful.isCpfCnpj('52.851.132/0001-20')).to.be.true
+        expect(useful.isCpfCnpj(52851132000120)).to.be.true
+        expect(useful.isCpfCnpj('18.264.801/0001-20')).to.be.true
+        expect(useful.isCpfCnpj(18264801000120)).to.be.true  
+        expect(useful.isCpfCnpj('04.879.969/0001-35')).to.be.true
+        expect(useful.isCpfCnpj(4879969000135)).to.be.true
     })
 })
 
