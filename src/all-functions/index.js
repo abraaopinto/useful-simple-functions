@@ -20,14 +20,14 @@ const isCpf = vCpf => {
   let sum, rest
 
   if(isNull(vCpf)) return false
-
+ 
   if(isNumber(vCpf)) {
     vCpf = vCpf.toString()
     vCpf = vCpf.padStart(11,'0')
   }
   
   vCpf = sanitize(vCpf) 
-  
+
   if (vCpf.length != 11  ||
     vCpf == "00000000000" ||
     vCpf == "11111111111" ||
@@ -116,7 +116,7 @@ const isCnpj = vCnpj => {
            
     return true
 }
-const isCpfCnpj = v => isNotNull(sanitize(v)) ? v.length <= 11 ? isCpf(v) : isCnpj(v) : false
+const isCpfCnpj = v => isCpf(v) || isCnpj(v) 
 
 module.exports = {
   isNull,
