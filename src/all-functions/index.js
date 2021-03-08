@@ -135,7 +135,7 @@ const formatCnpj = vCnpj => {
   return cnpjFormat.test(vCnpj) ? vCnpj.replace(cnpjFormat, '$1.$2.$3/$4-$5') : errorMessage
 }
 
-formatCpfCnpj = v => v.length <= 11 ? formatCpf(v) : formatCnpj(v) 
+const formatCpfCnpj = v => v.length <= 11 ? formatCpf(v) : formatCnpj(v) 
 
 module.exports = {
   isNull,
