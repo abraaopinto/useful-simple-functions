@@ -1,5 +1,4 @@
 const sanitize = require('../string-functions').sanitize
-
 const isNull = o => !o && o !== 0
 const isNotNull = o => !!o
 const isEmpty = o => {
@@ -17,6 +16,8 @@ const isNumber = n => {
   return false
 }
 const isCpf = vCpf => {
+  const regexInvalidsCpf = /(0{11})|(1{11})|(2{11})|(3{11})|(4{11})|(5{11})|(6{11})|(7{11})|(8{11})|(9{11})/
+  
   let sum, rest
 
   if(isNull(vCpf)) return false
@@ -28,17 +29,9 @@ const isCpf = vCpf => {
   
   vCpf = sanitize(vCpf) 
 
-  if (vCpf.length != 11  ||
-    vCpf == "00000000000" ||
-    vCpf == "11111111111" ||
-    vCpf == "22222222222" ||
-    vCpf == "33333333333" ||
-    vCpf == "44444444444" ||
-    vCpf == "55555555555" ||
-    vCpf == "66666666666" ||
-    vCpf == "77777777777" ||
-    vCpf == "88888888888" ||
-    vCpf == "99999999999") return false
+  if (vCpf.length != 11) return false
+  
+  if (regexInvalidsCpf.test(vCpf)) return false
 
     // Validate first digit
     sum = 0
@@ -63,6 +56,8 @@ const isCpf = vCpf => {
     return true
 }
 const isCnpj = vCnpj => {
+  const regexInvalidsCnpj = /(0{14})|(1{14})|(2{14})|(3{14})|(4{14})|(5{14})|(6{14})|(7{14})|(8{14})|(9{14})/
+
   let sum, rest, size, numbers, digits, position
 
   if(isNull(vCnpj)) return false
@@ -74,17 +69,9 @@ const isCnpj = vCnpj => {
   
   vCnpj = sanitize(vCnpj)
 
-  if (vCnpj.length != 14 ||
-    vCnpj == "00000000000000" ||
-    vCnpj == "11111111111111" ||
-    vCnpj == "22222222222222" ||
-    vCnpj == "33333333333333" ||
-    vCnpj == "44444444444444" ||
-    vCnpj == "55555555555555" ||
-    vCnpj == "66666666666666" ||
-    vCnpj == "77777777777777" ||
-    vCnpj == "88888888888888" ||
-    vCnpj == "99999999999999") return false
+  if (vCnpj.length != 14) return false
+
+  if (regexInvalidsCnpj.test(vCnpj)) return false
     
     // Validate digits
     size = vCnpj.length - 2
@@ -94,8 +81,7 @@ const isCnpj = vCnpj => {
     position = size - 7
     for (let i = size; i >= 1; i--) {
       sum += numbers.charAt(size - i) * position--
-      if (position < 2)
-            position = 9
+      if (position < 2) position = 9
     }
     rest = sum % 11 < 2 ? 0 : 11 - sum % 11
 
@@ -107,8 +93,7 @@ const isCnpj = vCnpj => {
     position = size - 7
     for (let i = size; i >= 1; i--) {
       sum += numbers.charAt(size - i) * position--
-      if (position < 2)
-            position = 9
+      if (position < 2) position = 9
     }
     rest = sum % 11 < 2 ? 0 : 11 - sum % 11
     
