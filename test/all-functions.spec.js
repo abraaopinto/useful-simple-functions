@@ -452,6 +452,21 @@ describe('Function isCpfCnpj', () => {
     })
 })
 
+describe('Function formatCpf', () => {
+    it('', () => {})
+})
+
+describe('Function formatCnpj', () => {
+    it('test with valid cpf or cnpj', ()=> {
+        expect(useful.formatCnpj('52851132000120')).to.be.equal('52.851.132/0001-20')
+        expect(useful.formatCnpj(52851132000120)).to.be.equal('52.851.132/0001-20')
+    })
+})
+
+describe('Function formatCpfCnpj', () => {
+    it('', () => {})
+})
+
 describe('Function ...', () => {
     it('', () => {})
 })
