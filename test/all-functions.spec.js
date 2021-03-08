@@ -453,18 +453,44 @@ describe('Function isCpfCnpj', () => {
 })
 
 describe('Function formatCpf', () => {
-    it('', () => {})
+    it('test format cpf 123.456.789-09', ()=> {
+        expect(useful.formatCpf('12345678909')).to.be.equal('123.456.789-09')
+        expect(useful.formatCpf(12345678909)).to.be.equal('123.456.789-09')
+    })
+    it('test format cpf 802.061.312-91', ()=> {
+        expect(useful.formatCpf('80206131291')).to.be.equal('802.061.312-91')
+        expect(useful.formatCpf(80206131291)).to.be.equal('802.061.312-91')  
+    })
 })
 
 describe('Function formatCnpj', () => {
-    it('test with valid cpf or cnpj', ()=> {
+    it('test format cnpj 52.851.132/0001-20', ()=> {
         expect(useful.formatCnpj('52851132000120')).to.be.equal('52.851.132/0001-20')
         expect(useful.formatCnpj(52851132000120)).to.be.equal('52.851.132/0001-20')
+    })
+    it('test format cnpj 18.264.801/0001-20', ()=> {
+        expect(useful.formatCnpj('18264801000120')).to.be.equal('18.264.801/0001-20')
+        expect(useful.formatCnpj(18264801000120)).to.be.equal('18.264.801/0001-20')
     })
 })
 
 describe('Function formatCpfCnpj', () => {
-    it('', () => {})
+    it('test format cpf 123.456.789-09', ()=> {
+        expect(useful.formatCpfCnpj('12345678909')).to.be.equal('123.456.789-09')
+        expect(useful.formatCpfCnpj(12345678909)).to.be.equal('123.456.789-09')
+    })
+    it('test format cpf 802.061.312-91', ()=> {
+        expect(useful.formatCpfCnpj('80206131291')).to.be.equal('802.061.312-91')
+        expect(useful.formatCpfCnpj(80206131291)).to.be.equal('802.061.312-91')  
+    })
+    it('test format cnpj 52.851.132/0001-20', ()=> {
+        expect(useful.formatCnpj('52851132000120')).to.be.equal('52.851.132/0001-20')
+        expect(useful.formatCnpj(52851132000120)).to.be.equal('52.851.132/0001-20')
+    })
+    it('test format cnpj 18.264.801/0001-20', ()=> {
+        expect(useful.formatCpfCnpj('18264801000120')).to.be.equal('18.264.801/0001-20')
+        expect(useful.formatCpfCnpj(18264801000120)).to.be.equal('18.264.801/0001-20')
+    })
 })
 
 describe('Function ...', () => {
