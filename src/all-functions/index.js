@@ -103,6 +103,38 @@ const isCnpj = vCnpj => {
 }
 const isCpfCnpj = v => isCpf(v) || isCnpj(v) 
 
+const formatCpf = vCpf => {
+  const cpfFormat = /^(\d{3})(\d{3})(\d{3})(\d{2})$/
+  const errorMessage = 'Invalid CPF!'
+
+  if (isNull(vCpf)) return errorMessage
+
+  if(isNumber(vCpf)) {
+    vCpf = vCpf.toString()
+    vCpf = vCpf.padStart(11,'0')
+  }
+  
+  vCpf = sanitize(vCpf) 
+  
+  return cpfFormat.test(vCpf) ? vCpf.replace(cpfFormat, '$1.$2.$3-$4') : errorMessage
+}
+
+const formatCnpj = vCnpj => {
+  const cnpjFormat = /^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/
+  const errorMessage = 'Invalid CNPJ!'
+
+  if (isNull(vCnpj)) return errorMessage
+
+  if(isNumber(vCnpj)) {
+    vCnpj = vCnpj.toString()
+    vCnpj = vCnpj.padStart(14,'0')
+  }
+  
+  vCnpj = sanitize(vCnpj) 
+  
+  return cnpjFormat.test(vCnpj) ? vCnpj.replace(cnpjFormat, '$1.$2.$3-$4') : errorMessage
+}
+
 module.exports = {
   isNull,
   isNotNull,
@@ -112,5 +144,7 @@ module.exports = {
   isNumber,
   isCpf,
   isCnpj,
-  isCpfCnpj
+  isCpfCnpj,
+  formatCpf,
+  formatCnpj,
 }
