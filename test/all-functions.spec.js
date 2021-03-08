@@ -357,6 +357,8 @@ describe('Function isCnpj', () => {
         expect(useful.isCnpj(18264801000120)).to.be.true  
         expect(useful.isCnpj('04.879.969/0001-35')).to.be.true
         expect(useful.isCnpj(4879969000135)).to.be.true
+        expect(useful.isCnpj('00.000.000/0001-91')).to.be.true
+        expect(useful.isCnpj(00000000000191)).to.be.true
     })
 })
 
