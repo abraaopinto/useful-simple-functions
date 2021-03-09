@@ -6,7 +6,9 @@ module.exports = {
     node: true
   },
   extends: [
-    'standard'
+    'standard',
+    'plugin:jest/recommended',
+    'plugin:jest/style'
   ],
   parserOptions: {
     ecmaVersion: 12

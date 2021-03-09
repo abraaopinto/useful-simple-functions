@@ -4,7 +4,8 @@
   "description": "Useful simple functions.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test-coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1"
+    "eslint-plugin-promise": "^4.3.1",
+    "jest": "^26.6.3"
   }
 }
