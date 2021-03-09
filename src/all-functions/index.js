@@ -49,7 +49,7 @@ const isCpf = vCpf => {
 const isCnpj = vCnpj => {
   const regexInvalidsCnpj = /(0{14})|(1{14})|(2{14})|(3{14})|(4{14})|(5{14})|(6{14})|(7{14})|(8{14})|(9{14})/
 
-  let sum, rest, size, numbers, digits, position
+  let firstDigit, secondDigit
 
   if(isNull(vCnpj)) return false
 
@@ -64,33 +64,18 @@ const isCnpj = vCnpj => {
 
   if (regexInvalidsCnpj.test(vCnpj)) return false
     
-    // Validate digits
-    size = vCnpj.length - 2
-    numbers = vCnpj.substring(0,size)
-    digits = vCnpj.substring(size)
-    sum = 0
-    position = size - 7
-    for (let i = size; i >= 1; i--) {
-      sum += numbers.charAt(size - i) * position--
-      if (position < 2) position = 9
-    }
-    rest = sum % 11 < 2 ? 0 : 11 - sum % 11
+  // Validate digits
+  vCnpj = vCnpj.split('')
 
-    if (rest != digits.charAt(0)) return false
-         
-    size = size + 1
-    numbers = vCnpj.substring(0,size)
-    sum = 0
-    position = size - 7
-    for (let i = size; i >= 1; i--) {
-      sum += numbers.charAt(size - i) * position--
-      if (position < 2) position = 9
-    }
-    rest = sum % 11 < 2 ? 0 : 11 - sum % 11
-    
-    if (rest != digits.charAt(1)) return false
-           
-    return true
+  firstDigit = 11 - vCnpj.slice(0,12).reverse().slice(0,8).map((e, i) => e * (i+2)).concat(vCnpj.slice(0,12).reverse().slice(8,12).map((e,i) => e * (i+2))).reduce((s,v) => s + v)%11
+  
+  if ((firstDigit >= 10 ? 0 : firstDigit) != vCnpj[12]) return false
+
+  secondDigit = 11 - vCnpj.slice(0,13).reverse().slice(0,8).map((e, i) => e * (i+2)).concat(vCnpj.slice(0,13).reverse().slice(8,13).map((e,i) => e * (i+2))).reduce((s,v) => s + v)%11
+  
+  if ((secondDigit >= 10 ? 0 : secondDigit) != vCnpj[13]) return false
+  
+  return true
 }
 const isCpfCnpj = v => isCpf(v) || isCnpj(v) 
 
