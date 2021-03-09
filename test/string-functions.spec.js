@@ -46,6 +46,24 @@ describe('Function capitalizeFirst', () => {
   it('', () => {})
 })
 
+describe('Function reverse', () => {
+  it('test with text oi', () => {
+    expect(useful.reverse('oi')).to.equal('io')
+  })
+  it('test without parameter', () => {
+    expect(useful.reverse()).to.equal('')
+  })
+  it('test with parameter number', () => {
+    expect(useful.reverse(1234)).to.equal('')
+  })
+  it('test with parameter 1234', () => {
+    expect(useful.reverse('12345')).to.equal('54321')
+  })
+  it('test with parameter 1.00', () => {
+    expect(useful.reverse('1.00')).to.equal('00.1')
+  })
+})
+
 describe('Function formatReverseDate', () => {
   it('', () => {})
 })
