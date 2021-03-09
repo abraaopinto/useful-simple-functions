@@ -35,15 +35,21 @@ describe('Function capitalize', () => {
 })
 
 describe('Function sanitize', () => {
-  it('', () => {})
+  it('test in the "sanitize" function.', () => {
+    expect(useful.sanitize('hello world!')).to.equal('hello world')
+  })
 })
 
 describe('Function sanitizeAndCapitalize', () => {
-  it('', () => {})
+  it('test in the "sanitizeAndCapitalize" function.', () => {
+    expect(useful.sanitizeAndCapitalize('hello world!')).to.equal('HELLO WORLD')
+  })
 })
 
 describe('Function capitalizeFirst', () => {
-  it('', () => {})
+  it('test in the "capitalizeFirst" function.', () => {
+    expect(useful.capitalizeFirst('hello world!')).to.equal('Hello world!')
+  })
 })
 
 describe('Function reverse', () => {
@@ -65,5 +71,7 @@ describe('Function reverse', () => {
 })
 
 describe('Function formatReverseDate', () => {
-  it('', () => {})
+  it('test with parameter new Date()', () => {
+    expect(useful.formatReverseDate('2021-01-10')).to.equal('10-01-2021')
+  })
 })

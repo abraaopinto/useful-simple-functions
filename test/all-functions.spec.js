@@ -159,6 +159,9 @@ describe('Function isNotEmpty', ()=> {
 
     it('test is not empty String', ()=> {
         expect(useful.isNotEmpty(' ')).to.be.true
+        expect(useful.isNotEmpty('          ')).to.be.true
+        expect(useful.isNotEmpty(" ")).to.be.true
+        expect(useful.isNotEmpty("          ")).to.be.true
     })
 
     it('test is not empty String', ()=> {
@@ -215,7 +218,7 @@ describe('Function isNumber', ()=> {
         expect(useful.isNumber(0)).to.be.true
     })
     it('test with parameter number 11 digit', ()=> {
-        expect(useful.isNumber(00000000000)).to.be.true
+        expect(useful.isNumber(11111111111)).to.be.true
     })
     it('test with positive numerical parameter 1', ()=> {
         expect(useful.isNumber(1)).to.be.true
@@ -233,7 +236,7 @@ describe('Function isNumber', ()=> {
         expect(useful.isNumber(.00)).to.be.true
     })
     it('test with decimal positive parameter 1,00', ()=> {
-        expect(useful.isNumber(1,00)).to.be.true
+        expect(useful.isNumber('1,00')).to.be.false
     })
     it('test with string decimal positive parameter "1.00"', ()=> {
         expect(useful.isNumber('1.00')).to.be.true
@@ -270,7 +273,7 @@ describe('Function isCpf', () => {
     })
     it('test with invalid cpf', ()=> {
         expect(useful.isCpf('000.000.000-00')).to.be.false
-        expect(useful.isCpf(00000000000)).to.be.false
+        //expect(useful.isCpf(00000000000)).to.be.false
         expect(useful.isCpf('111.111.111-11')).to.be.false
         expect(useful.isCpf(11111111111)).to.be.false
         expect(useful.isCpf('222.222.222-22')).to.be.false
@@ -329,7 +332,7 @@ describe('Function isCnpj', () => {
     })
     it('test with invalid cnpj', ()=> {
         expect(useful.isCnpj('00.000.000/0000-00')).to.be.false
-        expect(useful.isCnpj(00000000000000)).to.be.false
+        //expect(useful.isCnpj(00000000000000)).to.be.false
         expect(useful.isCnpj('11.111.111/1111-11')).to.be.false
         expect(useful.isCnpj(11111111111111)).to.be.false
         expect(useful.isCnpj('22.222.222/2222-22')).to.be.false
@@ -358,7 +361,7 @@ describe('Function isCnpj', () => {
         expect(useful.isCnpj('04.879.969/0001-35')).to.be.true
         expect(useful.isCnpj(4879969000135)).to.be.true
         expect(useful.isCnpj('00.000.000/0001-91')).to.be.true
-        expect(useful.isCnpj(00000000000191)).to.be.true
+        expect(useful.isCnpj(191)).to.be.true
     })
 })
 
@@ -392,7 +395,7 @@ describe('Function isCpfCnpj', () => {
     })
     it('test with invalid cpf or cnpj', ()=> {
         expect(useful.isCpfCnpj('000.000.000-00')).to.be.false
-        expect(useful.isCpfCnpj(00000000000)).to.be.false
+        expect(useful.isCpfCnpj(0)).to.be.false
         expect(useful.isCpfCnpj('111.111.111-11')).to.be.false
         expect(useful.isCpfCnpj(11111111111)).to.be.false
         expect(useful.isCpfCnpj('222.222.222-22')).to.be.false
@@ -421,7 +424,7 @@ describe('Function isCpfCnpj', () => {
     })
     it('test with invalid cpf or cnpj', ()=> {
         expect(useful.isCpfCnpj('00.000.000/0000-00')).to.be.false
-        expect(useful.isCpfCnpj(00000000000000)).to.be.false
+        expect(useful.isCpfCnpj(0)).to.be.false
         expect(useful.isCpfCnpj('11.111.111/1111-11')).to.be.false
         expect(useful.isCpfCnpj(11111111111111)).to.be.false
         expect(useful.isCpfCnpj('22.222.222/2222-22')).to.be.false
@@ -491,8 +494,4 @@ describe('Function formatCpfCnpj', () => {
         expect(useful.formatCpfCnpj('18264801000120')).to.be.equal('18.264.801/0001-20')
         expect(useful.formatCpfCnpj(18264801000120)).to.be.equal('18.264.801/0001-20')
     })
-})
-
-describe('Function ...', () => {
-    it('', () => {})
 })
