@@ -18,7 +18,7 @@ const isNumber = n => {
 const isCpf = vCpf => {
   const regexInvalidsCpf = /(0{11})|(1{11})|(2{11})|(3{11})|(4{11})|(5{11})|(6{11})|(7{11})|(8{11})|(9{11})/
   
-  let sum, rest
+  let firstDigit, secondDigit
 
   if(isNull(vCpf)) return false
  
@@ -33,28 +33,19 @@ const isCpf = vCpf => {
   
   if (regexInvalidsCpf.test(vCpf)) return false
 
-    // Validate first digit
-    sum = 0
-    for (let i = 0; i < 9; i++) sum += parseInt(vCpf.charAt(i)) * (10 - i)
-    
-    rest = 11 - (sum % 11)
-    
-    if (rest === 10 || rest === 11) rest = 0
-    
-    if (rest != parseInt(vCpf.charAt(9))) return false
-    
-      // Validate second digit
-    sum = 0
-    for (let i = 0; i < 10; i++) sum += parseInt(vCpf.charAt(i)) * (11 - i)
-    
-    rest = 11 - (sum % 11)
+  // Validate first digit
+  firstDigit = 11 - vCpf.split('').slice(0,9).map( (e,i,a) => e * ((a.length+1)-i)).reduce((s, v) => s + v)%11
+  
+  if ((firstDigit >= 10 ? 0 : firstDigit) != parseInt(vCpf.charAt(9))) return false
 
-    if (rest === 10 || rest === 11) rest = 0
+  // Validate second digit
+  secondDigit = 11 - vCpf.split('').slice(0,10).map( (e,i,a) => e * ((a.length+1)-i)).reduce((s, v) => s + v)%11
+
+  if ((secondDigit >= 10 ? 0 : secondDigit) != parseInt(vCpf.charAt(10))) return false
     
-    if (rest != parseInt(vCpf.charAt(10))) return false
-    
-    return true
+  return true
 }
+
 const isCnpj = vCnpj => {
   const regexInvalidsCnpj = /(0{14})|(1{14})|(2{14})|(3{14})|(4{14})|(5{14})|(6{14})|(7{14})|(8{14})|(9{14})/
 
