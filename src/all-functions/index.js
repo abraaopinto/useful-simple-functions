@@ -1,11 +1,12 @@
 const sanitize = require('../string-functions').sanitize
 const isNull = o => !o && o !== 0
-const isNotNull = o => !!o
+const isNotNull = o => !!o || o === 0
 const isEmpty = o => {
   if (isNull(o)) return true
   if (o.constructor === Object) return Object.entries(o).length === 0
   if (o.constructor === Array || o.constructor === String) return o.length === 0
   if (o.constructor === Set || o.constructor === Map) return o.size === 0
+  if (typeof o === 'number' && isNotNull(o)) return false
   return true
 }
 const isNotEmpty = o => !isEmpty(o)
