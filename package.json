@@ -1,6 +1,6 @@
 {
   "name": "useful-simple-functions",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Useful simple functions.",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "url": "git+https://github.com/abraaopinto/useful-simple-functions.git"
   },
   "keywords": [
+    "usf",
     "useful",
     "simple",
     "functions",
@@ -28,7 +29,10 @@
     "isNumber",
     "isCpf",
     "isCnpj",
-    "isCpfCnpj"
+    "isCpfCnpj",
+    "formatCpf",
+    "formatCnpj",
+    "formatCpfCnpj"
   ],
   "author": "Abraão Pinto",
   "license": "MIT",
