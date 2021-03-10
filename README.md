@@ -162,13 +162,6 @@ useful.isBlank('  ');
 
 ### isNumber
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="abraaopinto" data-slug-hash="OJbEzBB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="isNumber">
-  <span>See the Pen <a href="https://codepen.io/abraaopinto/pen/OJbEzBB">
-  isNumber</a> by Abraão Pinto (<a href="https://codepen.io/abraaopinto">@abraaopinto</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
 ```js
 const useful = require('useful-simple-functions');
 
