@@ -30,6 +30,15 @@ describe('Function isNull', ()=> {
     it('test with negative numerical parameter -1', ()=> {
         expect(useful.isNull(-1)).to.be.false
     })
+    it('test with negative numerical parameter Infinity', ()=> {
+        expect(useful.isNull(Infinity)).to.be.false
+    })
+    it('test with negative numerical parameter Set', ()=> {
+        expect(useful.isNull(new Set())).to.be.false
+    })
+    it('test with negative numerical parameter Map', ()=> {
+        expect(useful.isNull(new Map())).to.be.false
+    })
     it('test with object parameter', ()=> {
         expect(useful.isNull({})).to.be.false
     })
@@ -54,6 +63,15 @@ describe('Function isNotNull', ()=> {
     it('test with undefined parameter', ()=> {
         expect(useful.isNotNull(undefined)).to.be.false
     })
+    it('test with Infinity parameter', ()=> {
+        expect(useful.isNotNull(Infinity)).to.be.true
+    })
+    it('test with Set parameter', ()=> {
+        expect(useful.isNotNull(new Set())).to.be.true
+    })
+    it('test with Map parameter', ()=> {
+        expect(useful.isNotNull(new Map())).to.be.true
+    })
     it('test with boolean parameter false', ()=> {
         expect(useful.isNotNull(false)).to.be.false
     })
@@ -61,7 +79,7 @@ describe('Function isNotNull', ()=> {
         expect(useful.isNotNull(true)).to.be.true
     })
     it('test with parameter number zero', ()=> {
-        expect(useful.isNotNull(0)).to.be.false
+        expect(useful.isNotNull(0)).to.be.true
     })
     it('test with positive numerical parameter 1', ()=> {
         expect(useful.isNotNull(1)).to.be.true
@@ -93,13 +111,21 @@ describe('Function isEmpty', ()=> {
     it('test is empty in object no null', ()=> {
         expect(useful.isEmpty({ name:'John'})).to.be.false
     })
-  
+
+    it('test is empty in object no null and properties null ', ()=> {
+        expect(useful.isEmpty({ name: null})).to.be.false
+    })
+
     it('test is empty Array no null', ()=> {
         expect(useful.isEmpty([1,2,3])).to.be.false
     })
   
     it('test is empty in null value', ()=> {
         expect(useful.isEmpty(null)).to.be.true
+    })
+
+    it('test is empty in Infinity value', ()=> {
+        expect(useful.isEmpty(Infinity)).to.be.false
     })
 
     it('test is empty function', ()=> {
@@ -116,6 +142,18 @@ describe('Function isEmpty', ()=> {
 
     it('test is empty String', ()=> {
         expect(useful.isEmpty('')).to.be.true
+    })
+
+    it('test is empty String', ()=> {
+        expect(useful.isEmpty("")).to.be.true
+    })
+
+    it('test is empty String', ()=> {
+        expect(useful.isEmpty("                    ")).to.be.false
+    })
+
+    it('test is empty String', ()=> {
+        expect(useful.isEmpty('                     ')).to.be.false
     })
 })
 
@@ -165,14 +203,25 @@ describe('Function isNotEmpty', ()=> {
     })
 
     it('test is not empty String', ()=> {
+        expect(useful.isNotEmpty('1')).to.be.true
+        expect(useful.isNotEmpty('0')).to.be.true
+        expect(useful.isNotEmpty("false")).to.be.true
+        expect(useful.isNotEmpty("undefined")).to.be.true
+    })
+
+    it('test is not empty String', ()=> {
         expect(useful.isNotEmpty('')).to.be.false
     })
 
     it('test is not empty Number', ()=> {
-        expect(useful.isNotEmpty(0)).to.be.false
-        expect(useful.isNotEmpty(1)).to.be.false
-        expect(useful.isNotEmpty(111111111111)).to.be.false
-        expect(useful.isNotEmpty(999999999999)).to.be.false
+        expect(useful.isNotEmpty(0)).to.be.true
+        expect(useful.isNotEmpty(1)).to.be.true
+        expect(useful.isNotEmpty(111111111111)).to.be.true
+        expect(useful.isNotEmpty(999999999999)).to.be.true
+    })
+
+    it('test is not empty Number Infinity', ()=> {
+        expect(useful.isNotEmpty(Infinity)).to.be.true
     })
 })
 
@@ -216,6 +265,9 @@ describe('Function isNumber', ()=> {
     }) 
     it('test with parameter number zero', ()=> {
         expect(useful.isNumber(0)).to.be.true
+    })
+    it('test with parameter number Infinity', ()=> {
+        expect(useful.isNumber(Infinity)).to.be.true
     })
     it('test with parameter number 11 digit', ()=> {
         expect(useful.isNumber(11111111111)).to.be.true
@@ -265,6 +317,9 @@ describe('Function isCpf', () => {
     it('test with object parameter', ()=> {
         expect(useful.isCpf({})).to.be.false
     })
+    it('test with Infinity parameter', ()=> {
+        expect(useful.isCpf(Infinity)).to.be.false
+    })
     it('test with array parameter', ()=> {
         expect(useful.isCpf([])).to.be.false
     })
@@ -273,7 +328,7 @@ describe('Function isCpf', () => {
     })
     it('test with invalid cpf', ()=> {
         expect(useful.isCpf('000.000.000-00')).to.be.false
-        //expect(useful.isCpf(00000000000)).to.be.false
+        expect(useful.isCpf(0)).to.be.false
         expect(useful.isCpf('111.111.111-11')).to.be.false
         expect(useful.isCpf(11111111111)).to.be.false
         expect(useful.isCpf('222.222.222-22')).to.be.false
@@ -332,7 +387,7 @@ describe('Function isCnpj', () => {
     })
     it('test with invalid cnpj', ()=> {
         expect(useful.isCnpj('00.000.000/0000-00')).to.be.false
-        //expect(useful.isCnpj(00000000000000)).to.be.false
+        expect(useful.isCnpj(0)).to.be.false
         expect(useful.isCnpj('11.111.111/1111-11')).to.be.false
         expect(useful.isCnpj(11111111111111)).to.be.false
         expect(useful.isCnpj('22.222.222/2222-22')).to.be.false
@@ -377,6 +432,9 @@ describe('Function isCpfCnpj', () => {
     })
     it('test with undefined parameter', ()=> {
         expect(useful.isCpfCnpj(undefined)).to.be.false
+    })
+    it('test with Infinity parameter', ()=> {
+        expect(useful.isCpfCnpj(Infinity)).to.be.false
     })
     it('test with boolean parameter false', ()=> {
         expect(useful.isCpfCnpj(false)).to.be.false
@@ -459,6 +517,10 @@ describe('Function formatCpf', () => {
     it('test valid cpf format 123.456.789-09', ()=> {
         expect(useful.formatCpf('12345678909')).to.be.equal('123.456.789-09')
         expect(useful.formatCpf(12345678909)).to.be.equal('123.456.789-09')
+    })
+    it('test valid cpf format 802.061.312-91', ()=> {
+        expect(useful.formatCpf('80206131291')).to.be.equal('802.061.312-91')
+        expect(useful.formatCpf(80206131291)).to.be.equal('802.061.312-91')  
     })
     it('test valid cpf format 802.061.312-91', ()=> {
         expect(useful.formatCpf('80206131291')).to.be.equal('802.061.312-91')
