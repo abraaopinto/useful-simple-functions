@@ -1,6 +1,6 @@
 {
   "name": "useful-simple-functions",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Useful simple functions.",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,8 @@
     "formatCpf",
     "formatCnpj",
     "formatCpfCnpj",
-    "composeAsString"
+    "composeAsString",
+    "compose"
   ],
   "author": "Abraão Pinto",
   "license": "MIT",

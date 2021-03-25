@@ -114,6 +114,8 @@ const formatCnpj = vCnpj => {
 
 const formatCpfCnpj = v => v.toString().length <= 11 ? formatCpf(v) : formatCnpj(v) 
 
+const compose = (...functions) => (...params) => functions.forEach(fn => fn(...params))
+
 module.exports = {
   isNull,
   isNotNull,
@@ -126,5 +128,6 @@ module.exports = {
   isCpfCnpj,
   formatCpf,
   formatCnpj,
-  formatCpfCnpj
+  formatCpfCnpj,
+  compose
 }
