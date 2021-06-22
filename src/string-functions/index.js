@@ -18,7 +18,7 @@ const capitalizeSentence = s => {
   if (!isValidString(s)) return ''
   s = s.replace(/(^\s*)|(\s*$)/gi, '')
   s = s.replace(/[ ]{2,}/gi, ' ')
-  return s.split(/\r\n|\r|\n/).map(capitalizeFirst).join(/\r\n|\r|\n/)
+  return s.split(/\r\n|\r|\n/).map(capitalizeFirst).join(' ')
 }
 const capitalizeWord = s => {
   if (!isValidString(s)) return ''
