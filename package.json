@@ -1,6 +1,6 @@
 {
   "name": "useful-simple-functions",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Useful simple functions.",
   "main": "index.js",
   "scripts": {

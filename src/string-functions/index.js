@@ -15,13 +15,13 @@ const formatReverseDate = s => isValidString(s) ? s.split(/\D/).reverse().join('
 const lowerCase = s => isValidString(s) ? s.toLowerCase() : ''
 const upperCase = s => isValidString(s) ? s.toUpperCase() : ''
 const capitalizeSentence = s => {
-  if (isValidString(s)) return ''
+  if (!isValidString(s)) return ''
   s = s.replace(/(^\s*)|(\s*$)/gi, '')
   s = s.replace(/[ ]{2,}/gi, ' ')
   return s.split(/\r\n|\r|\n/).map(capitalizeFirst).join(/\r\n|\r|\n/)
 }
 const capitalizeWord = s => {
-  if (isValidString(s)) return ''
+  if (!isValidString(s)) return ''
   s = s.replace(/(^\s*)|(\s*$)/gi, '')
   s = s.replace(/[ ]{2,}/gi, ' ')
   s = s.replace(/\n /, '\n')
