@@ -1,6 +1,6 @@
 {
   "name": "useful-simple-functions",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Useful simple functions.",
   "main": "index.js",
   "scripts": {
@@ -34,7 +34,13 @@
     "formatCnpj",
     "formatCpfCnpj",
     "composeAsString",
-    "compose"
+    "compose",
+    "lowerCase",
+    "upperCase",
+    "lineNumbers",
+    "wordNumbers",
+    "capitalizeSentence",
+    "capitalizeWord"
   ],
   "author": "Abraão Pinto",
   "license": "MIT",
