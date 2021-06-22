@@ -52,6 +52,18 @@ describe('Function capitalizeFirst', () => {
   })
 })
 
+describe('Function upperCase', () => {
+  it('test in the "upperCase" function.', () => {
+    expect(useful.upperCase('hello world!')).to.equal('HELLO WORLD!')
+  })
+  it('test in the "upperCase" function.', () => {
+    expect(useful.upperCase()).to.equal('')
+  })
+  it('test in the "upperCase" function.', () => {
+    expect(useful.upperCase(1)).to.equal('')
+  })
+})
+
 describe('Function reverse', () => {
   it('test with text oi', () => {
     expect(useful.reverse('oi')).to.equal('io')
