@@ -24,15 +24,16 @@ const capitalizeWord = s => {
   if (!isValidString(s)) return ''
   s = s.replace(/(^\s*)|(\s*$)/gi, '')
   s = s.replace(/[ ]{2,}/gi, ' ')
-  s = s.replace(/\n /, '\n')
-  return s.split(' ').map(capitalizeFirst).join(' ')
+  s = s.replaceAll('\n', '\n ')
+  s = s.split(' ').map(capitalizeFirst).join(' ')
+  return s.replaceAll('\n ', '\n')
 }
 const lineNumbers = s => isValidString(s) ? s.split(/\r\n|\r|\n/).length : 0
 const wordNumbers = s => {
   if (!isValidString(s)) return 0
   s = s.replace(/(^\s*)|(\s*$)/gi, '')
   s = s.replace(/[ ]{2,}/gi, ' ')
-  s = s.replace(/\n /, ' ')
+  s = s.replaceAll('\n', '\n ')
   return s.split(' ').length
 }
 module.exports = {
