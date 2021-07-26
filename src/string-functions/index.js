@@ -9,7 +9,11 @@ const composeAsString = (...fns) => (s) => {
   return result
 }
 const sanitizeAndCapitalize = s => composeAsString(capitalize, sanitize)(s)
-const capitalizeFirst = s => isValidString(s) ? capitalize(s.charAt(0)) + s.slice(1) : ''
+const capitalizeFirst = s => {
+  if (!isValidString(s)) return ''
+  s = s.replace(s.charAt(s.search(/\w{1}/)), capitalize(s.charAt(s.search(/\w{1}/))))
+  return s
+}
 const reverse = s => isValidString(s) ? s.split('').reverse().join('') : ''
 const formatReverseDate = s => isValidString(s) ? s.split(/\D/).reverse().join('-') : ''
 const lowerCase = s => isValidString(s) ? s.toLowerCase() : ''
@@ -18,7 +22,12 @@ const capitalizeSentence = s => {
   if (!isValidString(s)) return ''
   s = s.replace(/(^\s*)|(\s*$)/gi, '')
   s = s.replace(/[ ]{2,}/gi, ' ')
-  return s.split(/\r\n|\r|\n/).map(capitalizeFirst).join('\n')
+  s = s.split(/\r\n|\r|\n/).map(capitalizeFirst).join('\n')
+  s = s.split('.').map(capitalizeFirst).join('.')
+  s = s.split('!').map(capitalizeFirst).join('!')
+  s = s.split('?').map(capitalizeFirst).join('?')
+  s = s.split('...').map(capitalizeFirst).join('...')
+  return s
 }
 const capitalizeWord = s => {
   if (!isValidString(s)) return ''
